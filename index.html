@@ -17,14 +17,12 @@
   require([ "esri/Map", "esri/views/MapView" ], (Map, MapView) => {
    
     const map = new Map({
+      container: "viewDiv",  // Reference to the DOM node that will contain the view
  basemap: "satellite"     //create a map with the satellite basemap
 });
   
 
-const view = new MapView({
- container: "viewDiv", // Reference to the DOM node that will contain the view   and place map in out project "div"
- map: map // References the map object
-});
+
 
   });
   </script>
