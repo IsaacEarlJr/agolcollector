@@ -55,7 +55,7 @@ const locateBtn = new Locate({
         });
 
 
-        require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search" ], (esriConfig, Map, MapView, Locate, Search) => {
+        require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search", "esri/layers/FeatureLayer" ], (FeatureLayer, esriConfig, Map, MapView, Locate, Search) => {
    //locate widget helps you find the location of the user via phone gps
     esriConfig.apiKey = "AAPK220ba579086140dea4e25f522bf00c8bG3Mb_Pd1g_KKKi94wj2H2lL_ceoaHcU25yTWEgLu20jkuceWo9_tPekrNz5Yr-nu";
     
@@ -80,9 +80,9 @@ const locateBtn = new Locate({
         // Add the locate widget to the top left corner of the view
         view.ui.add(locateBtn, {
           position: "top-left"
-        });
+        })
 
-
+        
         const searchWidget = new Search({
       view: view
     });
@@ -91,6 +91,13 @@ const locateBtn = new Locate({
       position: "top-right",
       index: 2
     });
+
+// Create featurelayer from feature service 
+const layer = new FeatureLayer({ 
+  // URL to the service 
+   url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/survey123_62f26882f9d24007b217971ef2729ced_results/FeatureServer/0"
+});
+map.add(layer);
 
   });
 
