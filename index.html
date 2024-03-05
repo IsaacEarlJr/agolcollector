@@ -55,7 +55,7 @@ const locateBtn = new Locate({
         });
 
 
-        require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search", "esri/layers/FeatureLayer" ], (FeatureLayer, esriConfig, Map, MapView, Locate, Search) => {
+        require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search", "esri/layers/FeatureLayer" ], (esriConfig, Map, MapView, Locate, Search, FeatureLayer) => {
    //locate widget helps you find the location of the user via phone gps
     esriConfig.apiKey = "AAPK220ba579086140dea4e25f522bf00c8bG3Mb_Pd1g_KKKi94wj2H2lL_ceoaHcU25yTWEgLu20jkuceWo9_tPekrNz5Yr-nu";
     
