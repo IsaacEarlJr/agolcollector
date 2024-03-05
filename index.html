@@ -76,6 +76,17 @@ const view = new MapView({
 const locateBtn = new Locate({
           view: view
         });
+
+// Create featurelayer from feature service 
+const layer = new FeatureLayer({ 
+  // URL to the service 
+   url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/survey123_62f26882f9d24007b217971ef2729ced_results/FeatureServer/0"
+});
+
+
+
+
+
          //bring coffee to the table
         // Add the locate widget to the top left corner of the view
         view.ui.add(locateBtn, {
@@ -92,12 +103,8 @@ const locateBtn = new Locate({
       index: 2
     });
 
-// Create featurelayer from feature service 
-const layer = new FeatureLayer({ 
-  // URL to the service 
-   url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/survey123_62f26882f9d24007b217971ef2729ced_results/FeatureServer/0"
-});
-map.add(layer);
+
+
 
   });
 
