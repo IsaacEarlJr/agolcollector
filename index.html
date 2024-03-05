@@ -27,8 +27,8 @@
 <!--load in the scrips, these need requires-->
 
 <script>
-  require(["esri/config", "esri/Map", "esri/views/MapView" ], (esriConfig, Map, MapView) => {
-   
+  require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate" ], (esriConfig, Map, MapView, Locate) => {
+   //locate widget helps you find the location of the user via phone gps
     esriConfig.apiKey = "AAPK220ba579086140dea4e25f522bf00c8bG3Mb_Pd1g_KKKi94wj2H2lL_ceoaHcU25yTWEgLu20jkuceWo9_tPekrNz5Yr-nu";
     
     const map = new Map({
@@ -43,6 +43,16 @@ const view = new MapView({
  zoom: 6 // Zoom level
 
 });
+
+//activate the widget, make the coffee
+const locateBtn = new Locate({
+          view: view
+        });
+         //bring coffee to the table
+        // Add the locate widget to the top left corner of the view
+        view.ui.add(locateBtn, {
+          position: "top-left"
+        });
 
 
   });
