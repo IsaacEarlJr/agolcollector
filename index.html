@@ -55,6 +55,34 @@ const locateBtn = new Locate({
         });
 
 
+        require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search" ], (esriConfig, Map, MapView, Locate, Search) => {
+   //locate widget helps you find the location of the user via phone gps
+    esriConfig.apiKey = "AAPK220ba579086140dea4e25f522bf00c8bG3Mb_Pd1g_KKKi94wj2H2lL_ceoaHcU25yTWEgLu20jkuceWo9_tPekrNz5Yr-nu";
+    
+    const map = new Map({
+      container: "viewDiv",  // Reference to the DOM node that will contain the view
+ basemap: "satellite"     //create a map with the satellite basemap
+});
+  
+const view = new MapView({
+ container: "viewDiv", // Reference to the DOM node that will contain the view
+ map: map, // References the map object
+ center: [-90, 28], // Longitude, Latitude for Gulf of Mexico
+ zoom: 6 // Zoom level
+
+});
+
+//activate the widget, make the coffee
+const locateBtn = new Locate({
+          view: view
+        });
+         //bring coffee to the table
+        // Add the locate widget to the top left corner of the view
+        view.ui.add(locateBtn, {
+          position: "top-left"
+        });
+
+
   });
 
 
@@ -67,6 +95,12 @@ view.ui.add(searchWidget, {
   position: "top-left",
   index: 2
 });
+
+
+  });
+
+
+  
 
   </script>
   
